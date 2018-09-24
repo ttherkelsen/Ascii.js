@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/><html>
+    <title>Surface writing using dynamic font - test - Ascii.js</title>
+    <script type="module">
+import DynamicFont from "../lib/DynamicFont.js";
+import DynamicSurface from "../lib/DynamicSurface.js";      
+import * as utils from "../lib/utils.js";
+      
+async function test() {
+    let font_9x15 = await DynamicFont.createFont('9x15');
+    let surface = new DynamicSurface({
+        font: font_9x15,
+        width: 80,
+        height: 15,
+        id: "surface",
+    });
+    await surface.write(10, 5, "Hello World!!!");
+    await surface.write(10, 6, "Hello World!!!", [ '#ffffffff', '#000000ff' ]);
+}
+
+utils.ready(test);
+    </script>
+  </head>
+  <body>
+    <div id="surface"></div>
+  </body>
+</html>

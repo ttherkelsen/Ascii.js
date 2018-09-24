@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/><html>
+    <title>Dynamic Font Loading - test - Ascii.js</title>
+    <script type="module">
+import DynamicFont from "../lib/DynamicFont.js";
+import * as utils from "../lib/utils.js";
+
+async function test() {
+    let font = await DynamicFont.createFont('9x15');
+    console.log(font);
+    await font.loadPage(0);
+    await font.loadPage(7);
+}
+
+utils.ready(test);
+    </script>
+  </head>
+  <body>
+    <div id="surface"></div>
+  </body>
+</html>

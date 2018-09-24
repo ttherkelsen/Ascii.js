@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/><html>
+    <title>Font import - test - Ascii.js</title>
+    <script type="module">
+import font_9x15 from "../lib/font/9x15/full.js";
+import * as utils from "../lib/utils.js";
+      
+function test() {
+    console.log(font_9x15);
+}
+
+utils.ready(test);
+    </script>
+  </head>
+  <body>
+    <div id="surface"></div>
+  </body>
+</html>
