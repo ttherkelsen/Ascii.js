@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>UI Window - test - Ascii.js</title>
+    <script type="module">
+import font_9x15 from "../lib/font/9x15/full.js";
+import Surface from "../lib/Surface.js";      
+import * as utils from "../lib/utils.js";
+import * as UI from "../lib/UI.js";
+    
+function test() {
+    let surface = new Surface({
+        font: font_9x15,
+        width: 80,
+        height: 15,
+        id: "surface",
+    });
+    let ui = new UI.Screen({
+	surface,
+	theme: new UI.LightTheme(),
+        root: new UI.ColumnContainer(
+            {
+                children: [
+                    new UI.Label({ text: "Row 1" }),
+                    new UI.Label({ text: "Row 2" }),
+                    new UI.Label({ text: "Row 3" }),
+                    new UI.Label({ text: "Row 4" }),
+                ]
+            }
+        ),
+    });
+    ui.render();
+}
+
+utils.ready(test);
+    </script>
+  </head>
+  <body>
+    <div id="surface"></div>
+  </body>
+</html>

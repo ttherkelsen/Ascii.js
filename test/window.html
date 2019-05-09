@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>UI Window - test - Ascii.js</title>
+    <script type="module">
+import font_9x15 from "../lib/font/9x15/full.js";
+import Surface from "../lib/Surface.js";      
+import * as utils from "../lib/utils.js";
+import * as UI from "../lib/UI.js";
+    
+function test() {
+    let surface = new Surface({
+        font: font_9x15,
+        width: 80,
+        height: 15,
+        id: "surface",
+    });
+    let ui = new UI.Screen({
+	surface,
+	theme: new UI.LightTheme(),
+    });
+
+    ui.popupWindow("Welcome to Ascii.js", `
+Lorem ipsum dolor sit amet, mutat corpora facilisi an est. Ut mea illum integre fierent, ne lorem tamquam pro, te eos alii graece voluptatum. Sed case nostrud id. Graecis denique inimicus nec te, ut per ponderum inimicus.
+
+Aliquam pertinax deterruisset et duo. Case debet no quo, duo soleat feugait voluptatibus no. Modus laudem vis et, alia dicat nullam ea his. Modus everti urbanitas cu per. Id aperiri labores nec.
+`);
+}
+
+utils.ready(test);
+    </script>
+  </head>
+  <body>
+    <div id="surface"></div>
+  </body>
+</html>
