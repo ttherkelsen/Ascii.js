@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8"/>
-    <title>Screen - test - Ascii.js</title>
+    <title>Surface mouse movement - test - Ascii.js</title>
     <script type="module">
 import font_9x15 from "../lib/font/9x15/full.js";
 import Surface from "../lib/Surface.js";      
@@ -16,13 +16,19 @@ function test() {
         height: 15,
         id: "surface",
     });
-    let theme = new LightTheme();
-    let ui = new FontTable({
-        fontPage : 0x2500,
-    })
-
-    let screen = new Screen({ surface, ui, theme });
-        
+    let theme = new UI.LightTheme();
+    let ui = new UI.RowContainer(
+        {
+            children: [
+                new UI.Label({ text: "Row 1" }),
+                new UI.Label({ text: "Row 23" }),
+                new UI.Label({ text: "Row 35555" }),
+                new UI.Label({ text: "Row 4" }),
+            ]
+        }
+    );
+    let screen = new UI.Screen({ surface, ui, theme });
+    screen.render();
 }
 
 utils.ready(test);

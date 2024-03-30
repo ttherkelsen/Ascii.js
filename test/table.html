@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8"/>
-    <title>Screen - test - Ascii.js</title>
+    <title>Table - test - Ascii.js</title>
     <script type="module">
 import font_9x15 from "../lib/font/9x15/full.js";
 import Surface from "../lib/Surface.js";      
@@ -16,13 +16,17 @@ function test() {
         height: 15,
         id: "surface",
     });
-    let theme = new LightTheme();
-    let ui = new FontTable({
-        fontPage : 0x2500,
-    })
+    let theme = new UI.LightTheme();
+    let idx = 0;
+    let children = Array(12).map(e => new UI.Label({ text: `Cell${idx++}` ]));
+    let ui = new GridContainer({
+        columns: 4,
+        rows: 3,
+        children,
+    });
 
-    let screen = new Screen({ surface, ui, theme });
-        
+    let screen = new UI.Screen({ surface, ui, theme });
+    screen.render();
 }
 
 utils.ready(test);
