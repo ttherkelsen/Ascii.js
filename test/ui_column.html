@@ -16,21 +16,31 @@ function test() {
         height: 15,
         id: "surface",
     });
-    let ui = new UI.Screen({
+    let screen = new UI.Screen({
 	surface,
 	theme: new UI.LightTheme(),
-        root: new UI.ColumnContainer(
+        ui: new UI.ColumnContainer(
             {
                 children: [
-                    new UI.Label({ text: "Row 1" }),
-                    new UI.Label({ text: "Row 2" }),
-                    new UI.Label({ text: "Row 3" }),
-                    new UI.Label({ text: "Row 4" }),
+                    new UI.Label({ text: "Col 1" }),
+                    new UI.Label({ text: "Col 2" }),
+                    new UI.RowContainer(
+                        {
+                            children: [
+                                new UI.Label({ text: "Row 1" }),
+                                new UI.Label({ text: "Row 23" }),
+                                new UI.Label({ text: "Row 35555" }),
+                                new UI.Label({ text: "Row 4" }),
+                            ]
+                        }
+                    ),
+                    new UI.Label({ text: "Col 3" }),
+                    new UI.Label({ text: "Col 4" }),
                 ]
             }
         ),
     });
-    ui.render();
+    screen.render();
 }
 
 utils.ready(test);

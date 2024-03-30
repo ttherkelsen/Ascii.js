@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Screen - test - Ascii.js</title>
+    <script type="module">
+import font_9x15 from "../lib/font/9x15/full.js";
+import Surface from "../lib/Surface.js";      
+import * as utils from "../lib/utils.js";
+      
+function test() {
+    let surface = new Surface({
+        font: font_9x15,
+        width: 80,
+        height: 15,
+        id: "surface",
+    });
+    let theme = new Theme();
+    let ui = new FontTable({
+        fontPage : 0x2500,
+    })
+
+    let screen = new Screen({ surface, ui, theme });
+        
+        
+    surface.write(10, 5, "Hello World!!!");
+    surface.write(10, 6, "Hello World!!!", [ '#ffffffff', '#000000ff' ]);
+}
+
+utils.ready(test);
+    </script>
+  </head>
+  <body>
+    <div id="surface"></div>
+  </body>
+</html>
