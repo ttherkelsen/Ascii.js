@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8"/>
-    <title>Surface mouse movement - test - Ascii.js</title>
+    <title>Button - test - Ascii.js</title>
     <script type="module">
 import font_9x15 from "../lib/font/9x15/full.js";
 import Surface from "../lib/Surface.js";      
@@ -16,15 +16,14 @@ function test() {
         height: 15,
         id: "surface",
     });
-    let theme = new UI.LightTheme();
+    let theme = new UI.DarkTheme();
     let ui = new UI.RowContainer(
         {
-            traceMouseEvents: true,
             children: [
-                new UI.Label({ text: "Row 1" }),
-                new UI.Label({ text: "Row 23" }),
-                new UI.Label({ text: "Row 35555" }),
-                new UI.Label({ text: "Row 4" }),
+                new UI.Button({ text: "Button 1" }),
+                new UI.Button({ text: "Button 23" }),
+                new UI.Button({ text: "Button 35555" }),
+                new UI.Button({ text: "Button 4" }),
             ]
         }
     );
