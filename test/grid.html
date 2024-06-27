@@ -19,16 +19,17 @@ function test() {
     let theme = new UI.DarkTheme();
     let ui = new UI.GridContainer(
         {
-            rows: 3,
-            columns: 4,
+            rows: 4,
+            columns: 5,
             padding: 1, // min space between two children
-            header: [ UI.l('A'), UI.l('B'), UI.l('C'), UI.l('D') ],
-            vHeader: [ UI.l('1'), UI.l('2'), UI.l('3') ],
+            header: "both", // "none" (or bool false), "top", "left" or "both"
             headerBorder: true,
+            normalise: false, // if true, all columns/rows will be the same size (size of largest child component)
             children: [
-                UI.l('a'), UI.l('b'), UI.l('c'), UI.l('d'),
-                UI.l('e'), UI.l('f'), UI.l('g'), UI.l('h'),
-                UI.l('i'), UI.l('j'), UI.l('k'), UI.l('l'),
+                UI.l('x'), UI.l('A'), UI.l('B'), UI.l('C'), UI.l('D'),
+                UI.l('1'), UI.l('a'), UI.l('b'), UI.l('c'), UI.l('d'),
+                UI.l('2'), UI.l('e'), UI.l('f'), UI.l('g'), UI.l('h'),
+                UI.l('3'), UI.l('i'), UI.l('j'), UI.l('k'), UI.l('l'),
             ]
         }
     );
